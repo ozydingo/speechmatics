@@ -8,7 +8,9 @@ module Speechmatics
       :auth_token,
       :adapter,
       :endpoint,
-      :user_agent
+      :user_agent,
+      :timeout,
+      :open_timeout,
     ].freeze
 
     # Adapters are whatever Faraday supports - I like excon alot, so I'm defaulting it
@@ -50,6 +52,8 @@ module Speechmatics
       self.adapter      = DEFAULT_ADAPTER
       self.endpoint     = DEFAULT_ENDPOINT
       self.user_agent   = DEFAULT_USER_AGENT
+      self.timeout      = nil
+      self.open_timeout = nil
       self
     end
 
