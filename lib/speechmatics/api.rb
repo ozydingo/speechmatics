@@ -40,8 +40,6 @@ module Speechmatics
       request_path = (conn.path_prefix + '/' + path).gsub(/\/+/, '/') 
 
       response = conn.send(method) do |request|
-        request.options.timeout = Speechmatics.timeout
-        request.options.open_timeout = Speechmatics.open_timeout
         case method.to_sym
         when :get, :delete
           request.url(request_path, params)
